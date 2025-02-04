@@ -1,0 +1,54 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["Hello", "Hi", "Hey", "Good morning", "Good evening"],
+      "responses": ["Hello!", "Hi there!", "Hey! How can I help you?"]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "See you", "Goodbye", "Take care"],
+      "responses": ["Goodbye!", "See you soon!", "Take care!"]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "I appreciate it"],
+      "responses": ["You're welcome!", "No problem!", "Happy to help!"]
+    },
+    {
+      "tag": "weather",
+      "patterns": ["What's the weather like?", "Tell me the weather", "Is it raining today?"],
+      "responses": ["I can check that for you!", "Please specify a city."]
+    },
+    {
+      "tag": "leave",
+      "patterns": ["can i get leave for 3 days?", "I want leave for 2 days", "I want leave for 2 days from 20 sept. to 22 sept."],
+      "responses":  [
+        {
+          "start": 17,
+          "end": 18,
+          "value": "2",
+          "entity": "no_of_days"
+        },
+        {
+          "start": 28,
+          "end": 36,
+          "value": " 20 sept",
+          "entity": "from"
+        },
+        {
+          "start": 40,
+          "end": 48,
+          "value": " 22 sept",
+          "entity": "to"
+        }
+      ]
+    },
+    {
+      "tag": "EmpNoAndName",
+      "patterns": ["What's my name?", "What's my EmployeeNo", "Tell me my EmployeeId"],
+      "responses": ["Sorry I don't have Information Regarding you", "I can't find relevant information"]
+    }
+    
+  ]
+}
