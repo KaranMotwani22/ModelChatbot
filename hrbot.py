@@ -10,14 +10,28 @@ import datetime
 import sys
 import warnings
 from PIL import Image
+import requests
+import json
     
 bot_template = "BOT : {0}"
 
 # Open database connection
-db = pymysql.connect("localhost","root","526527492","hrbot")
+url1 = "https://weatworktest.mahyco.com/webapi/api/MyProfile/GetMyProfileData"
+headers1 = {
+    "Authorization": "bearer k-Fa6IAPmcfVgeTPcBhWTaYvPqhpzVaUbH38CMMSH7JHzTJknzDSO4U1M4wgiQU4IbiYpqtHdB3jK1aoi9gDbcUmUvmH4DgnlNbGsvCnkZKtLJz79KmM2C-IWSqb0FHaxseeFICkdzkN1PTPjbPY8GYIpYugJi4qgE9wqVKKXAEv75DW_ZiXVRaYJIRvTHmAPnIbSbbS91BSZXNTtACibA"}
+data1 = {"loginDetails": {
+    "LoginEmpID": 97260738,
+    "LoginEmpCompanyCodeNo": "4000"
+}
+}
+
+response1 = requests.post(url1, headers=headers1, json=data1)
+
+# transfer api data to api_data.json
+with open('api_data.json', 'w') as file:
+    json.dump(response1.json(), file, indent=2)
 
 # prepare a cursor object using cursor() method
-cur = db.cursor()
 
 # disconnect from server
 #db.close()
